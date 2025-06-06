@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>mootmoot? MOOTMOOT!!!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mot.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>e click nang mga blue hearts bab! :3💙</h1>
+
+    <div class="heart-container">
+      <div class="heart" data-message="Thank you for always giving me the best goodmorning greetings!"></div>
+      <div class="heart" data-message="Thank you for being you!"></div>
+      <div class="heart" data-message="Thank you for always making me smile!"></div>
+      <div class="heart" data-message="You have the best goodnight greetings ever!"></div>
+      <div class="heart" data-message="Dont change okii? just be you :3"></div>
+      <div class="heart" data-message="i am comfortable showing my true self when im with you!"></div>
+      <div class="heart" data-message="You are my Girlfriend!"></div>
+      <div class="heart" data-message="You've made me understand what true love is!"></div>
+    </div>
+
+    <div class="message" id="messageBox">Click a heart to see a reason 💙</div>
+    <footer>Happy mootmoot bab! e click na sila hihi 💌</footer>
+  </div>
+
+  <!-- Confetti JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+
+    <!-- Add this just before </body> -->
+<div class="love-letter-overlay" id="loveLetter">
+  <div class="love-letter-box">
+    <div class="love-letter-photos">
+</div>
+    <h2>💙 Happy 5th Mootmoot Bab! 💙</h2>
+    <p id="letterText"></p>
+    <button onclick="closeLetter()">Close</button>
+  </div>
+</div>
+
+  <script src="mot.js"></script>
+
+</body>
+</html>

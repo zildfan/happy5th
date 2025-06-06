@@ -1,0 +1,253 @@
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(to bottom right, #dff3ff, #bfdcff);
+  font-family: 'Quicksand', sans-serif;
+  color: #1e3a8a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Container Styling */
+.container {
+  text-align: center;
+  padding: 30px 20px;
+  max-width: 800px;
+  width: 100%;
+  background: #ffffffee;
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.8rem;
+  margin-bottom: 25px;
+  color: #3b82f6;
+}
+
+/* Heart Grid */
+.heart-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+/* Heart Shape */
+.heart {
+  width: 60px;
+  height: 60px;
+  background-color: #3b82f6;
+  clip-path: polygon(
+    50% 15%,
+    61% 4%,
+    78% 4%,
+    90% 15%,
+    90% 32%,
+    50% 70%,
+    10% 32%,
+    10% 15%,
+    22% 4%,
+    39% 4%
+  );
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.3s;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  position: relative;
+}
+
+/* Heart Glow & Bounce Animation */
+.heart.clicked {
+  animation: pop 0.6s ease;
+  background-color: #1d4ed8;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.5); }
+  60% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+/* Sparkle Burst (Optional Visual Enhancement) */
+.heart::after {
+  content: "💫";
+  font-size: 16px;
+  position: absolute;
+  opacity: 0;
+  animation: none;
+}
+
+.heart.clicked::after {
+  left: 50%;
+  top: -10px;
+  transform: translateX(-50%);
+  animation: sparkle 0.6s ease-out forwards;
+}
+
+@keyframes sparkle {
+  0% { opacity: 0; transform: translateY(0) scale(0.5); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-30px) scale(1.5); }
+}
+
+/* Message Area */
+.message {
+  font-size: 1.3rem;
+  font-weight: 500;
+  min-height: 50px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  padding: 15px;
+  color: #1e40af;
+  border-radius: 10px;
+  background: #f0f8ff;
+  box-shadow: inset 0 0 8px #c7dfff;
+}
+
+.message.show {
+  opacity: 1;
+}
+
+/* Footer */
+footer {
+  margin-top: 30px;
+  font-size: 0.95rem;
+  color: #1e3a8a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .heart {
+    width: 50px;
+    height: 50px;
+  }
+  .message {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heart {
+    width: 42px;
+    height: 42px;
+  }
+  .container {
+    padding: 20px 10px;
+  }
+  .message {
+    font-size: 1rem;
+  }
+  footer {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* Overlay */
+.love-letter-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(191, 219, 254, 0.95); /* light blue */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Box */
+.love-letter-box {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.5rem;
+  color: #1d4ed8;
+  position: relative;
+}
+
+.love-letter-box h2 {
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.love-letter-box button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.love-letter-box button:hover {
+  background-color: #2563eb;
+}
+
+/* Show overlay */
+.love-letter-overlay.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Typewriter Effect */
+#letterText {
+  white-space: pre-line;
+  overflow: hidden;
+  border-right: .1em solid #3b82f6;
+  animation: typing 4s steps(60, end), blink .75s step-end infinite;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.love-letter-photos {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  pointer-events: none;
+}
+
+
